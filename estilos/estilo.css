@@ -1,0 +1,22 @@
+body {
+    background-color: #f3f6fb;
+    color: #202938;
+    font-family: Arial, sans-serif;
+}
+
+.card {
+    border: none;
+    border-radius: 12px;
+}
+
+h1, h2 {
+    font-weight: 700;
+}
+
+.table {
+    vertical-align: middle;
+}
+
+.btn {
+    border-radius: 7px;
+}
