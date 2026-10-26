@@ -1,22 +1,3 @@
-<<<<<<< HEAD
-<?php
-include('configuracion/conexcion.php');
-
-// Eliminar equipo si se envía el ID por GET
-if (isset($_GET['eliminar'])) {
-    $id_eliminar = intval($_GET['eliminar']);
-    $conn->query("DELETE FROM equipos WHERE id = $id_eliminar");
-    header("Location: equipos.php?mensaje=eliminado");
-    exit();
-}
-
-// Consultar lista de equipos con el total de jugadores
-$sql = "SELECT e.*, COUNT(j.id) as total_jugadores 
-        FROM equipos e 
-        LEFT JOIN jugadores j ON e.id = j.equipo_id 
-        GROUP BY e.id";
-$result = $conn->query($sql);
-?>
 <!DOCTYPE html>
 <html lang="es">
 <head>

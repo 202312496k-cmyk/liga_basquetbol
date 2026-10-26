@@ -1,13 +1,4 @@
-<?php
-include('config/conexion.php');
 
-$sql = "SELECT p.*, el.nombre as local, ev.nombre as visitante 
-        FROM partidos p 
-        JOIN equipos el ON p.equipo_local_id = el.id 
-        JOIN equipos ev ON p.equipo_visitante_id = ev.id 
-        ORDER BY p.fecha_partido DESC";
-$result = $conn->query($sql);
-?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
