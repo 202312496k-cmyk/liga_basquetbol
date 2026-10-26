@@ -1,0 +1,75 @@
+<?php
+include('config/conexion.php');
+
+$sql = "SELECT p.*, el.nombre as local, ev.nombre as visitante 
+        FROM partidos p 
+        JOIN equipos el ON p.equipo_local_id = el.id 
+        JOIN equipos ev ON p.equipo_visitante_id = ev.id 
+        ORDER BY p.fecha_partido DESC";
+$result = $conn->query($sql);
+?>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Gestión de Partidos</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.php">🏀 Liga de Básquetbol</a>
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item"><a class="nav-link" href="equipos.php">Equipos</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="partidos.php">Partidos</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h2>Control de Partidos</h2>
+            <a href="crear_partido.php" class="btn btn-success">+ Programar Partido</a>
+        </div>
+
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <table class="table table-striped align-middle">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Fecha / Hora</th>
+                            <th>Equipo Local</th>
+                            <th>Resultado</th>
+                            <th>Equipo Visitante</th>
+                            <th>Estado</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php if ($result->num_rows > 0): ?>
+                            <?php while ($row = $result->fetch_assoc()): ?>
+                            <tr>
+                                <td><?php echo $row['fecha_partido']; ?></td>
+                                <td><strong><?php echo htmlspecialchars($row['local']); ?></strong></td>
+                                <td><span class="fs-5 fw-bold"><?php echo $row['puntos_local']; ?> - <?php echo $row['puntos_visitante']; ?></span></td>
+                                <td><strong><?php echo htmlspecialchars($row['visitante']); ?></strong></td>
+                                <td>
+                                    <span class="badge bg-warning text-dark"><?php echo $row['estado']; ?></span>
+                                </td>
+                            </tr>
+                            <?php endwhile; ?>
+                        <?php else: ?>
+                            <tr>
+                                <td colspan="5" class="text-center">No hay partidos registrados.</td>
+                            </tr>
+                        <?php endif; ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
