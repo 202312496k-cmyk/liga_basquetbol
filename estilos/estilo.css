@@ -1,8 +1,4 @@
 
-/* =========================================
-   LIGA DE BASQUETBOL - ESTILO DEPORTIVO
-   ========================================= */
-
 :root {
     --fondo: #0b1120;
     --fondo-secundario: #111c30;
@@ -10,7 +6,7 @@
     --naranja: #ff6b00;
     --naranja-claro: #ff9138;
     --blanco: #ffffff;
-    --texto: #dce5f2;
+    --texto: #000000;
     --texto-secundario: #9eacc1;
     --borde: rgba(255, 255, 255, 0.09);
     --verde: #20c997;
