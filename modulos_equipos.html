@@ -1,0 +1,89 @@
+<?php
+include('configuracion/conexcion.php');
+
+// Eliminar equipo si se envía el ID por GET
+if (isset($_GET['eliminar'])) {
+    $id_eliminar = intval($_GET['eliminar']);
+    $conn->query("DELETE FROM equipos WHERE id = $id_eliminar");
+    header("Location: equipos.php?mensaje=eliminado");
+    exit();
+}
+
+// Consultar lista de equipos con el total de jugadores
+$sql = "SELECT e.*, COUNT(j.id) as total_jugadores 
+        FROM equipos e 
+        LEFT JOIN jugadores j ON e.id = j.equipo_id 
+        GROUP BY e.id";
+$result = $conn->query($sql);
+?>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Gestión de Equipos</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.php">🏀 Liga de Básquetbol</a>
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item"><a class="nav-link active" href="equipos.php">Equipos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="partidos.php">Partidos</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h2>Gestión de Equipos</h2>
+            <a href="crear_equipo.php" class="btn btn-primary">+ Nuevo Equipo</a>
+        </div>
+
+        <?php if (isset($_GET['mensaje'])): ?>
+            <div class="alert alert-success">Operación realizada con éxito.</div>
+        <?php endif; ?>
+
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <table class="table table-hover align-middle">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>ID</th>
+                            <th>Nombre del Equipo</th>
+                            <th>Ciudad</th>
+                            <th>Entrenador</th>
+                            <th>Jugadores</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php if ($result->num_rows > 0): ?>
+                            <?php while ($row = $result->fetch_assoc()): ?>
+                            <tr>
+                                <td><?php echo $row['id']; ?></td>
+                                <td><strong><?php echo htmlspecialchars($row['nombre']); ?></strong></td>
+                                <td><?php echo htmlspecialchars($row['ciudad']); ?></td>
+                                <td><?php echo htmlspecialchars($row['entrenador']); ?></td>
+                                <td><span class="badge bg-info text-dark"><?php echo $row['total_jugadores']; ?> Jugadores</span></td>
+                                <td>
+                                    <a href="equipos.php?eliminar=<?php echo $row['id']; ?>" class="btn btn-sm btn-danger" onclick="return confirm('¿Eliminar este equipo?')">Eliminar</a>
+                                </td>
+                            </tr>
+                            <?php endwhile; ?>
+                        <?php else: ?>
+                            <tr>
+                                <td colspan="6" class="text-center">No hay equipos registrados.</td>
+                            </tr>
+                        <?php endif; ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
