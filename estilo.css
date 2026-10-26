@@ -20,3 +20,82 @@ h1, h2 {
 .btn {
     border-radius: 7px;
 }
+
+/* Animación de las tarjetas */
+.animacion-tarjeta {
+    animation: subirTarjeta 0.6s ease both;
+    transition: box-shadow 0.3s ease;
+}
+
+.animacion-tarjeta:hover {
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15) !important;
+}
+
+@keyframes subirTarjeta {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Animación de las filas de las tablas */
+.animacion-fila {
+    animation: aparecerFila 0.4s ease both;
+}
+
+@keyframes aparecerFila {
+    from {
+        opacity: 0;
+        transform: translateX(-12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Aparición al desplazarse */
+.aparecer-scroll {
+    opacity: 0;
+    transform: translateY(25px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.aparecer-scroll.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Brillo del título */
+.titulo-animado {
+    animation: brilloTitulo 2.5s ease-in-out infinite alternate;
+}
+
+@keyframes brilloTitulo {
+    from {
+        text-shadow: 0 0 0 transparent;
+    }
+    to {
+        text-shadow: 0 0 12px rgba(13, 110, 253, 0.35);
+    }
+}
+
+/* Respeta la preferencia de movimiento reducido */
+@media (prefers-reduced-motion: reduce) {
+    .animacion-tarjeta,
+    .animacion-fila,
+    .aparecer-scroll,
+    .titulo-animado {
+        animation: none;
+        transition: none;
+    }
+
+    .aparecer-scroll {
+        opacity: 1;
+        transform: none;
+    }
+}

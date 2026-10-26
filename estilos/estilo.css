@@ -422,3 +422,183 @@ a:hover {
         margin-bottom: 3px;
     }
 }
+/* ESTILO DEPORTIVO */
+body {
+    background-color: #0b1120;
+    color: #f8fafc;
+    font-family: Arial, sans-serif;
+}
+
+/* TARJETAS */
+.card {
+    background: #151f32;
+    color: #f8fafc;
+    border: 1px solid #29364d;
+    border-radius: 14px;
+    overflow: hidden;
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 30px rgba(255, 107, 0, 0.2);
+}
+
+.card-header {
+    background: #ff6b00;
+    color: white;
+    font-weight: bold;
+    border-bottom: none;
+}
+
+/* TITULOS */
+h1, h2, h3, h4 {
+    font-weight: 800;
+}
+
+.titulo-liga {
+    color: #ff6b00;
+}
+
+.titulo-animado {
+    animation: brilloTitulo 2s ease-in-out infinite alternate;
+}
+
+@keyframes brilloTitulo {
+    from {
+        text-shadow: 0 0 3px rgba(255, 107, 0, 0.2);
+    }
+
+    to {
+        text-shadow: 0 0 18px rgba(255, 107, 0, 0.8);
+    }
+}
+
+/* BOTONES */
+.btn {
+    border-radius: 8px;
+    font-weight: bold;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.btn-primary {
+    background-color: #ff6b00;
+    border-color: #ff6b00;
+}
+
+.btn-primary:hover {
+    background-color: #e65c00;
+    border-color: #e65c00;
+}
+
+/* FORMULARIOS */
+.form-control,
+.form-select {
+    background-color: #0f172a;
+    color: white;
+    border: 1px solid #36445d;
+    border-radius: 8px;
+}
+
+.form-control:focus,
+.form-select:focus {
+    background-color: #0f172a;
+    color: white;
+    border-color: #ff6b00;
+    box-shadow: 0 0 0 0.2rem rgba(255, 107, 0, 0.2);
+}
+
+.form-select option {
+    background-color: #0f172a;
+    color: white;
+}
+
+.form-label {
+    color: #e2e8f0;
+    font-weight: bold;
+}
+
+/* TABLAS */
+.table {
+    --bs-table-bg: #151f32;
+    --bs-table-color: #f8fafc;
+    --bs-table-striped-bg: #1b2940;
+    --bs-table-striped-color: #f8fafc;
+    --bs-table-hover-bg: #29364d;
+    --bs-table-hover-color: #ffffff;
+    vertical-align: middle;
+}
+
+.table thead th {
+    background-color: #ff6b00;
+    color: white;
+    border-color: #36445d;
+}
+
+.table td {
+    border-color: #29364d;
+}
+
+/* ALERTAS */
+.alert {
+    border-radius: 10px;
+}
+
+/* ANIMACIÓN DE TARJETAS */
+.animacion-tarjeta {
+    opacity: 0;
+    animation: entradaTarjeta 0.7s ease forwards;
+}
+
+@keyframes entradaTarjeta {
+    from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.97);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* ANIMACIÓN DE FILAS */
+.animacion-fila {
+    opacity: 0;
+    animation: entradaFila 0.5s ease forwards;
+}
+
+@keyframes entradaFila {
+    from {
+        opacity: 0;
+        transform: translateX(-15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* ELEMENTOS AL DESPLAZARSE */
+.aparecer-scroll {
+    opacity: 0;
+    transform: translateY(25px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.aparecer-scroll.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ACCESIBILIDAD */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
