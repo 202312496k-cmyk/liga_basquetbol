@@ -54,7 +54,10 @@ $posiciones = ["Base", "Escolta", "Alero", "Ala-pívot", "Pívot"];
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Jugadores | Liga de Básquetbol</title>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+>
     <link rel="stylesheet" href="estilos.css">
 </head>
 <body>

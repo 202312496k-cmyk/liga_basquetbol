@@ -31,9 +31,9 @@ if ($resultado) {
     <title>Liga de Básquetbol</title>
 
     <link
-        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-        rel="stylesheet"
-    >
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+>
 
     <link href="estilo.css" rel="stylesheet">
 </head>
