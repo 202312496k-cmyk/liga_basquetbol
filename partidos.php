@@ -1,9 +1,8 @@
 
 <?php
 
-require_once __DIR__ . "/../configuracion/conexion.php";
-require_once __DIR__ . "/../includes/funciones.php";
-
+require_once __DIR__ . "../configuracion/conexcion.php";
+require_once __DIR__ . "../funciones.php";
 
 $mensaje = $_GET["mensaje"] ?? "";
 

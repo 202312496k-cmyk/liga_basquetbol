@@ -1,8 +1,7 @@
 
 <?php
-require_once __DIR__ . "/configuracion/conexcion.php";
-require_once __DIR__ . "/includes/funciones.php";
-
+require_once __DIR__ . "../configuracion/conexcion.php";
+require_once __DIR__ . "../funciones.php";
 if ($_SERVER["REQUEST_METHOD"] !== "POST") {
     redirigir("jugadores.php");
 }

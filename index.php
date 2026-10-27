@@ -1,6 +1,6 @@
 
 <?php
-require_once __DIR__ . "/configuracion/conexcion.php";
+require_once __DIR__ ."/configuracion/conexcion.php";
 
 $equipos = 0;
 $jugadores = 0;
@@ -35,7 +35,7 @@ if ($resultado) {
         rel="stylesheet"
     >
 
-    <link href="estilos/estilo.css" rel="stylesheet">
+    <link href="estilo.css" rel="stylesheet">
 </head>
 
 <body>
@@ -47,8 +47,8 @@ if ($resultado) {
         </a>
 
         <div class="navbar-nav">
-            <a class="nav-link" href="equipo/equipos.php">Equipos</a>
-            <a class="nav-link" href="partido/partidos.php">Partidos</a>
+            <a class="nav-link" href="equipos.php">Equipos</a>
+            <a class="nav-link" href="partidos.php">Partidos</a>
         </div>
     </div>
 </nav>
@@ -65,11 +65,11 @@ if ($resultado) {
             Administra equipos, jugadores y partidos de básquetbol.
         </p>
 
-        <a href="equipo/equipos.php" class="btn btn-primary">
+        <a href="equipos.php" class="btn btn-primary">
             Gestionar equipos
         </a>
 
-        <a href="partido/partidos.php" class="btn btn-success">
+        <a href="partidos.php" class="btn btn-success">
             Ver partidos
         </a>
     </div>
@@ -103,7 +103,7 @@ if ($resultado) {
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<script src="assets/js/animaciones.js"></script>
+<script src="animaciones.js"></script>
 
 </body>
 </html>

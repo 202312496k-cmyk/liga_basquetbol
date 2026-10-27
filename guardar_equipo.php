@@ -1,7 +1,7 @@
 
 <?php
-require_once "configuracion/conexcion.php";
-require_once "includes/funciones.php";
+require_once __DIR__ . "../configuracion/conexcion.php";
+require_once __DIR__ . "../funciones.php";
 
 if ($_SERVER["REQUEST_METHOD"] !== "POST") {
     redirigir("equipos.php");

@@ -1,7 +1,7 @@
-```php
+
 <?php
-require_once __DIR__ . "/configuracion/conexcion.php";
-require_once __DIR__ . "/includes/funciones.php";
+require_once __DIR__ . "/configuracion/conexion.php";
+require_once __DIR__ . "/funciones.php";
 
 $mensaje = $_GET["mensaje"] ?? "";
 
@@ -55,7 +55,7 @@ $posiciones = ["Base", "Escolta", "Alero", "Ala-pívot", "Pívot"];
     <title>Jugadores | Liga de Básquetbol</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/estilos.css">
+    <link rel="stylesheet" href="estilos.css">
 </head>
 <body>
 
@@ -212,7 +212,7 @@ $posiciones = ["Base", "Escolta", "Alero", "Ala-pívot", "Pívot"];
     </div>
 </div>
 
-<script src="assets/js/animaciones.js"></script>
+<script src="animaciones.js"></script>
 </body>
 </html>
 ```
