@@ -602,3 +602,70 @@ h1, h2, h3, h4 {
         transition-duration: 0.01ms !important;
     }
 }
+/* CONTENEDOR DE ESTADÍSTICAS */
+.estadisticas {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    margin: 35px auto;
+    max-width: 1200px;
+    padding: 20px;
+}
+
+/* TARJETAS */
+.tarjeta {
+    background: linear-gradient(135deg, #173D65, #102840);
+    color: white;
+    text-decoration: none;
+    padding: 30px 20px;
+    border-radius: 18px;
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+/* COLORES INDIVIDUALES */
+.tarjeta:nth-child(2) {
+    background: linear-gradient(135deg, #17634E, #103D32);
+}
+
+.tarjeta:nth-child(3) {
+    background: linear-gradient(135deg, #80521A, #50300C);
+}
+
+/* EFECTO AL PASAR EL MOUSE */
+.tarjeta:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.3);
+    color: white;
+}
+
+/* ICONOS */
+.tarjeta .icono {
+    font-size: 45px;
+    margin-bottom: 15px;
+}
+
+/* TÍTULOS */
+.tarjeta h3 {
+    font-size: 19px;
+    margin-bottom: 12px;
+}
+
+.tarjeta h2 {
+    font-size: 38px;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.tarjeta p {
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+/* DISEÑO RESPONSIVE */
+@media (max-width: 768px) {
+    .estadisticas {
+        grid-template-columns: 1fr;
+    }
+}
